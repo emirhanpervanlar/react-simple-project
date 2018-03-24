@@ -3,15 +3,18 @@ import config from '../../config'
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
 import User from '../../models/User';
-
+import cors from 'cors';
 
 const route = () =>{
     const router = new express.Router();
 
+    const configurationOption = {  // Acces hatasını gideriyor
+        origin : 'http://localhost:3000',
+        maxAge : 3600,
+        optionsSuccessStatus: 200
+    }
     router.route('/users').post((req,res)=>{
        User.find().then((user)=>{
-           res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-           res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
            res.send(user);
        })
     });
@@ -41,10 +44,11 @@ const route = () =>{
     });
 
 // SIGNUP ROUTER
-    router.route('/sign-up').post((req,res)=>{
-        const {email,password} = req.body;
+    router.route('/sign-up',cors(configurationOption)).post((req,res)=>{
+        const {email,password,fullName} = req.body;
         const passwordHashed = crypto.createHmac('sha256', config.passSecret).update(password).digest('hex');
         const newUser = new User({
+            fullName: fullName,
             email : email,
             password : passwordHashed
         });
