@@ -1,18 +1,10 @@
 import React,{Component} from "react";
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route} from "react-router-dom";
-import Home from './components/Home'
-import AllFetchTest from './components/AllFetchTest'
-
+import MainRoute from './routes/routes';
 class App extends Component{
     render(){
         return(
-            <Router>
-                <div>
-                    <Route exact path="/" component={Home} />
-                    <Route path="/test" component={AllFetchTest} />
-                </div>
-            </Router>
+            <MainRoute/>
         )
     }
 };
