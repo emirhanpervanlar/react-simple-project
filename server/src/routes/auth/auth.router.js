@@ -7,6 +7,15 @@ import User from '../../models/User';
 
 const route = () =>{
     const router = new express.Router();
+
+    router.route('/users').post((req,res)=>{
+       User.find().then((user)=>{
+           res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+           res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+           res.send(user);
+       })
+    });
+
 // SIGIN ROUTER
     router.route('/login').post((req,res)=>{
         const { email,password } = req.body;
