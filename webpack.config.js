@@ -30,6 +30,10 @@ module.exports = {
             }
         ]
     },
-    plugins: [HtmlWebpackPluginConfig]
+    plugins: [HtmlWebpackPluginConfig],
+    performance: {
+        hints:  false
+    },
+
 
 }

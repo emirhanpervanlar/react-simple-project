@@ -1,12 +1,13 @@
 import React from 'react';
+import Main from './Main';
 
-export class Home extends React.Component{
+class Test extends React.Component{
     render(){
         return(
-            <div>
-                <h3>Home page</h3>
-            </div>
+            <Main>
+                <h3>Test page</h3>
+            </Main>
         )
     }
 }
-export default Home;
+export default Test;

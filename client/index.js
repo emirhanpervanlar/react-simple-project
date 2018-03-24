@@ -1,5 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App.jsx';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
+import Main from "./components/Main";
+import Home from "./components/Home";
+import Test from "./components/Test";
+// import App from "./components/App";
+
+export class App extends React.Component{
+    render(){
+        return(
+            <BrowserRouter>
+                <Route exact path={"/"} component={Home} >
+                    <Route path={"test"} component={Test} />
+                </Route>
+            </BrowserRouter>
+        )
+    }
+}
+
 
 ReactDOM.render(<App/>,document.getElementById('root'));

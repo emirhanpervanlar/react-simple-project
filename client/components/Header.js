@@ -4,7 +4,7 @@ export class App extends React.Component{
     render(){
         return(
             <div style={{textAlign: 'center'}} >
-sd
+                Header
             </div>
         )
     }
