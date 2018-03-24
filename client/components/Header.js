@@ -1,13 +1,21 @@
 import React from 'react';
-
-export class App extends React.Component{
+import {Link} from "react-router-dom";
+export class Header extends React.Component{
     render(){
         return(
             <div style={{textAlign: 'center'}} >
-                Header
+                <ul>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/test">About</Link>
+                    </li>
+                </ul>
+                <hr />
             </div>
         )
     }
 }
 
-export default App;
+export default Header;

@@ -1,22 +1,22 @@
-import React from 'react';
+import React,{Component} from "react";
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Route, Link} from 'react-router-dom';
-import Main from "./components/Main";
-import Home from "./components/Home";
-import Test from "./components/Test";
-// import App from "./components/App";
+import { BrowserRouter as Router, Route} from "react-router-dom";
+import Home from './components/Home'
+import Test from './components/Test'
 
-export class App extends React.Component{
+class App extends Component{
     render(){
         return(
-            <BrowserRouter>
-                <Route exact path={"/"} component={Home} >
-                    <Route path={"test"} component={Test} />
-                </Route>
-            </BrowserRouter>
+            <Router>
+                <div>
+                    <Route exact path="/" component={Home} />
+                    <Route path="/test" component={Test} />
+                </div>
+            </Router>
         )
     }
-}
-asd
+};
+
+
 
 ReactDOM.render(<App/>,document.getElementById('root'));

@@ -1,4 +1,4 @@
-import React,{Component,Children} from 'react';
+import React,{Component} from 'react';
 import Header from './Header';
 export class Main extends Component{
     render(){
@@ -11,7 +11,6 @@ export class Main extends Component{
                 </div>
                 <div className="row">
                     <div className="col-lg-12">
-                        Total children : {Children.count(this.props.children)}
                         {this.props.children}
                     </div>
                 </div>
