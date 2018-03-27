@@ -23,7 +23,12 @@ class UserSignUp extends Component{
     onSubmit(e){
         e.preventDefault();
         Http.post('auth/sign-up',this.state).then(res=>{
-            console.log(res);
+            if(res.data[0].state){
+                window.location = "http://www.google.com.tr/"
+            }else{
+                console.log(res);
+            }
+
         });
     }
 

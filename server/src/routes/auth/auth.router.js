@@ -53,8 +53,8 @@ const route = () =>{
             password : passwordHashed
         });
 
-        newUser.save().then((data)=>{
-            res.send({ status : true, user : data})
+        newUser.save().then(()=>{
+            res.send({ status : true})
         },(x)=>{
             res.send({ status : false, error : x})
         });
