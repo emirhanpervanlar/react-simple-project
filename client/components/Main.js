@@ -1,7 +1,16 @@
 import React,{Component} from 'react';
 import Header from './Header';
+
 export class Main extends Component{
+    constructor(props){
+        super(props);
+        this.store = this.props.store;
+    }
+
+
+
     render(){
+
         return(
             <div>
                 <div className="container-fluid">
