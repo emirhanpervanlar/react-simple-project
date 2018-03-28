@@ -1,9 +1,5 @@
 export default function reducer(state= {
-    users :{
-        id:null,
-        name:null,
-        age:null
-    },
+    user :[],
     fetching:false,
     fetched : false,
     error : null
@@ -11,19 +7,42 @@ export default function reducer(state= {
     switch(action.type){
         case "FETCH_USERS":{
             return{
-                users : action.payload,
+                ...state,
                 fetching : true
             }
         }
         case "FETCH_USERS_FULFILLED":{
             return{
-                users:action.payload,
+                ...state,
                 fetching : false,
                 fetched : true,
+                user:action.payload
             }
         }
         case "FETCH_USERS_REJECTED":{
             return{
+                ...state,
+                fetching:false,
+                error : action.payload
+            }
+        }
+        case "FETCH_ALL_USER":{
+            return{
+                ...state,
+                fetching : true
+            }
+        }
+        case "FETCH_ALL_USER_FULFILLED":{
+            return{
+                ...state,
+                fetching : false,
+                fetched : true,
+                user:action.payload
+            }
+        }
+        case "FETCH_ALL_USER_REJECTED":{
+            return{
+                ...state,
                 fetching:false,
                 error : action.payload
             }
